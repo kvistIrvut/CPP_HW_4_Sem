@@ -1,7 +1,3 @@
-//
-// Created by User1 on 13-Apr-26.
-//
-
 #ifndef MODELATION_H
 #define MODELATION_H
 
@@ -16,6 +12,11 @@
 #include "AvgStudent.hpp"
 #include "Teacher.hpp"
 
-void Model();
+class Model {
+    void modelation();
+
+};
+
+
 
 #endif //MODELATION_H
