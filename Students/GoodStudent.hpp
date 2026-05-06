@@ -7,7 +7,7 @@
 
 class GoodStudent : public Student {
 protected:
-    Solution solver(const Equation &eqaut) {
+    Solution solver(const Equation &eqaut) override {
         return equatSolver(eqaut);
     }
 public:

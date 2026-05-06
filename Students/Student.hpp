@@ -15,21 +15,16 @@ protected:
     }
 
 public:
-    Student() = default;
+    //По совету линтера приписал explicit, с целью запрета неявного создания объекта класса
+    explicit Student(const std::string &stud_name): m_stud_name(stud_name) {};
 
-    Student(const std::string &stud_name): m_stud_name(stud_name) {};
-    
-    //!?!?!?
-    const std::string &getStudName() const {
-        return this->m_stud_name;
-    }
 
     void setEquat(const Equation &equat) {
         this->m_equation = equat;
     }
 
     Letter writeLetter() {
-        return Letter(this->m_stud_name, this->m_equation, solver(this->m_equation));
+        return {this->m_stud_name, this->m_equation, solver(this->m_equation)};
     }
 
     virtual ~Student() = default;

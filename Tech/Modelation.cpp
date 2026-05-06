@@ -1,6 +1,6 @@
 #include "Modelation.hpp"
 
-void FillStudent(std::vector<std::unique_ptr<Student> > &students, int &stud_num) {
+void Model::fillStudent(std::vector<std::unique_ptr<Student>> &students, const int &stud_num) {
     std::random_device rng;
     std::minstd_rand gen(rng());
     std::uniform_int_distribution<int> dist(0, 2);
@@ -27,14 +27,14 @@ void FillStudent(std::vector<std::unique_ptr<Student> > &students, int &stud_num
     }
 }
 
-void EquatToStudents(std::vector<std::unique_ptr<Student> > &students, Teacher &teacher) {
+void Model::EquatToStudents(std::vector<std::unique_ptr<Student>> &students, Teacher &teacher) {
     for (auto &student: students) {
         student->setEquat(teacher.giveEquation());
         teacher.addLetterToQ(student->writeLetter());
     }
 }
 
-void printMenu() {
+void Model::printMenu() {
     std::cout << "Menu" << std::endl;
     std::cout << "1. Change number of students (Default is 5)" << std::endl;
     std::cout << "2. Create student list" << std::endl;
@@ -46,20 +46,18 @@ void printMenu() {
     std::cout << "Your choice: ";
 }
 
-void instruction(int &stud_num) {
+void Model::instruction(const int &stud_num) {
     std::cout << "Instructions" << std::endl;
     std::cout << "1. Changes the number of students. Accepts only integers." << std::endl;
     std::cout << "2. Creates a list of students of length " << stud_num << '.' << std::endl;
-    std::cout <<
-            "3. Sends 1 random equation from the equats.txt for each student. Reusing function on formed student list will replace their equations."
-            << std::endl;
+    std::cout << "3. Sends 1 random equation from the equats.txt for each student. Reusing function on formed student list will replace their equations." << std::endl;
     std::cout << "4. The teacher receives letters with solutions from students and checks them." << std::endl;
     std::cout << "5. Shows the current student performance." << std::endl;
     std::cout << "6. You are reading it" << std::endl;
     std::cout << "0. Exit is exit" << std::endl;
 }
 
-void Model() {
+void Model::modelation() {
     Teacher teacher;
     teacher.getEquations("equats.txt");
     std::vector<std::unique_ptr<Student> > students;
@@ -84,7 +82,7 @@ void Model() {
             case 2: {
                 students.clear();
                 teacher.clearTabel();
-                FillStudent(students, stud_num);
+                fillStudent(students, stud_num);
                 break;
             }
 

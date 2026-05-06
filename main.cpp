@@ -2,6 +2,7 @@
 #include "Tech/Modelation.hpp"
 
 int main() {
-    Model();
+    Model model;
+    model.modelation();
     return 0;
 }

@@ -20,10 +20,11 @@ public:
     const double &getC() const {
         return this->m_c;
     }
-    //Добавил пустой конструктор так как линетр ругался что в конструкторе класса Student поле m_equation не объявлен
+    //Добавил пустой конструктор так как линетр ругался, что в конструкторе класса Student поле m_equation не объявлено
     Equation() = default;
 
-    Equation(const std::string& str);
+    //По совету линтера приписал explicit, с целью запрета неявного создания объекта класса
+    explicit Equation(const std::string& str);
 };
 
 
