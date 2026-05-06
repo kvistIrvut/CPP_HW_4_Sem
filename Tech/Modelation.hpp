@@ -13,6 +13,12 @@
 #include "Teacher.hpp"
 
 class Model {
+private:
+    void EquatToStudents(std::vector<std::unique_ptr<Student>> &students, Teacher &teacher);
+    void fillStudent(std::vector<std::unique_ptr<Student> > &students, const int &stud_num);
+    void printMenu();
+    void instruction(const int &stud_num);
+public:
     void modelation();
 
 };

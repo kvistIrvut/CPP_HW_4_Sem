@@ -1,6 +1,6 @@
 #include "Modelation.hpp"
 
-void fillStudent(std::vector<std::unique_ptr<Student> > &students, const int &stud_num) {
+void Model::fillStudent(std::vector<std::unique_ptr<Student>> &students, const int &stud_num) {
     std::random_device rng;
     std::minstd_rand gen(rng());
     std::uniform_int_distribution<int> dist(0, 2);
@@ -27,14 +27,14 @@ void fillStudent(std::vector<std::unique_ptr<Student> > &students, const int &st
     }
 }
 
-void EquatToStudents(std::vector<std::unique_ptr<Student> > &students, Teacher &teacher) {
+void Model::EquatToStudents(std::vector<std::unique_ptr<Student>> &students, Teacher &teacher) {
     for (auto &student: students) {
         student->setEquat(teacher.giveEquation());
         teacher.addLetterToQ(student->writeLetter());
     }
 }
 
-void printMenu() {
+void Model::printMenu() {
     std::cout << "Menu" << std::endl;
     std::cout << "1. Change number of students (Default is 5)" << std::endl;
     std::cout << "2. Create student list" << std::endl;
@@ -46,7 +46,7 @@ void printMenu() {
     std::cout << "Your choice: ";
 }
 
-void instruction(const int &stud_num) {
+void Model::instruction(const int &stud_num) {
     std::cout << "Instructions" << std::endl;
     std::cout << "1. Changes the number of students. Accepts only integers." << std::endl;
     std::cout << "2. Creates a list of students of length " << stud_num << '.' << std::endl;
